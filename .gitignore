@@ -51,3 +51,9 @@ vignettes/*.pdf
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 **/.history
+
+# DBFs
+*.dbf
+*.DBF
+*.csv
+*.CSV
