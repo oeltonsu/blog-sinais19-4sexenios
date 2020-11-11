@@ -58,7 +58,7 @@ main <- "~/Documents/proyectos/blog-sinais19-armas"
    ungroup() %>% 
    group_by(sexo) %>% 
    mutate(tasa = total / pob * 100000,
-      acumulado = cumsum(tasa),
+      acumulado = cumsum(total),
           lag = lag(tasa),
           cambio = (tasa - lag) / lag * 100) 
 
@@ -201,7 +201,12 @@ main <- "~/Documents/proyectos/blog-sinais19-armas"
             porcent = round(total / total_year * 100, 2),
             sexenio = factor(sexenio,
                              levels = c("Fox", "Calderón", 
-                                        "EPN", "AMLO")))
+                                        "EPN", "AMLO")),
+            causa_hom = factor(causa_hom,
+                               levels = c("Arma de fuego", "Arma blanca",
+                                          "No especificado", 
+                                          "Ahorcamiento o ahogamiento",
+                                          "Otro"))) 
    
  
  g0 %>% 
@@ -239,7 +244,8 @@ main <- "~/Documents/proyectos/blog-sinais19-armas"
    scale_x_continuous(breaks = seq(from = 2001, to = 2019, by = 1))
  ggsave(paste(out, "2_tot-metodos.png", sep="/"), width=18, height=15) 
  
- 
+ rm(g0, pob_porsex, data_graf, cumsum)
+
 # 1. Perfiles más comunes
 
  g1 <- s_c %>% 
