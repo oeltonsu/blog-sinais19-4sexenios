@@ -1,7 +1,7 @@
 options(scipen=999)
 
 
-fill_base <-  c("#e71d36","#5f0f40","#8d99ae","#ff7d00","#DA666F","#FD7C6A")
+fill_base <-  c("#00FAE1","#4FAAAC","#5104BC","#78069E","#9F0780","#C50961","#EC0B43")
  fill_dos <-  c("#525252","#cccccc")
 
 
