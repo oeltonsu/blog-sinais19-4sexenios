@@ -37,14 +37,14 @@ main <- "~/Documents/proyectos/blog-sinais19-armas"
  
  sex_list <- seq(from = 2006, to = 2018, by = 6)
  
- data_graf <- s_c %>% 
-   ungroup() %>% 
-   group_by(year) %>% 
-   summarize(tot = sum(tot)) %>% 
+ data_graf <- s_c %>%
+   ungroup() %>%
+   group_by(year) %>%
+   summarize(tot = sum(tot)) %>%
    filter(year %in% sex_list)
  
- pob_porsex <- full_pop %>% 
-   group_by(year, sexo) %>% 
+ pob_porsex <- full_pop %>%
+   group_by(year, sexo) %>%
    summarize(pob = sum(poblacion))
  
 # sobreponer el acumulado
@@ -247,6 +247,26 @@ main <- "~/Documents/proyectos/blog-sinais19-armas"
  rm(g0, pob_porsex, data_graf, cumsum)
 
 # 1. Perfiles más comunes
+ 
+ pob_poredad <- full_pop %>% 
+   group_by(year,
+            sexo,
+            rango_edad) %>% 
+   summarize(pob = sum(poblacion)) %>% 
+   ungroup() %>% 
+   mutate(
+     sexenio = case_when(
+                   year > 2000 & year < 2007 ~ "Fox",
+                   year >= 2007 & year < 2013 ~ "Calderón",
+                   year >= 2013 & year < 2019 ~ "EPN",
+                   year == 2019 ~ "AMLO"
+                 )
+   ) %>% 
+   filter(is.na(sexenio)==F) %>% 
+   group_by(sexenio,
+            sexo,
+            rango_edad) %>% 
+   summarize(pob_prom  = mean(pob))
 
  g1 <- s_c %>% 
    group_by(sexo,
@@ -256,13 +276,58 @@ main <- "~/Documents/proyectos/blog-sinais19-armas"
             sexenio) %>% 
    summarize(total = sum(tot, na.rm = T)) %>% 
    ungroup() %>% 
+   left_join(pob_poredad,
+             by = c("rango_edad",
+                    "sexo", 
+                    "sexenio")) %>% 
    group_by(sexenio) %>% 
+   mutate(denomin = sum(total),
+          porcent = round(total / denomin * 100, 2),
+          tasa = total / pob_prom * 10000) %>% 
    slice_max(order_by = total,
              n = 1)
  
 # 2. Perfiles más comunes por sexo
-# 3. Perfiles más comunes por edo
-# 4. Perfiles más comunes por edo y sexo
+ 
+ g2 <- s_c %>% 
+   group_by(sexo,
+            rango_edad, 
+            lugar,
+            causa_hom,
+            sexenio) %>% 
+   summarize(total = sum(tot, na.rm = T)) %>% 
+   ungroup() %>% 
+   left_join(pob_poredad,
+             by = c("rango_edad",
+                    "sexo", 
+                    "sexenio")) %>% 
+   group_by(sexenio, sexo) %>% 
+   mutate(denomin = sum(total),
+          porcent = round(total / denomin * 100, 2),
+          tasa = total / pob_prom * 10000) %>% 
+   slice_max(order_by = total,
+             n = 1) %>% 
+   filter(is.na(sexo)==F)
+ 
+ 
+# 3. Perfiles más comunes por edo y sexo
+
+ g3 <- s_c %>% 
+   group_by(sexo,
+            rango_edad, 
+            lugar,
+            causa_hom,
+            sexenio,
+            cve_ent) %>% 
+   summarize(total = sum(tot, na.rm = T)) %>% 
+   ungroup() %>% 
+   group_by(sexenio, 
+            sexo) %>% 
+   mutate(denomin = sum(total),
+          porcent = round(total / denomin * 100, 2)) %>% 
+   slice_max(order_by = total,
+             n = 1) %>% 
+   filter(is.na(sexo)==F)
  
  
  
