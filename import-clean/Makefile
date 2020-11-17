@@ -4,7 +4,7 @@
 # Maintainer(s): OE, CT 
 # License: (c) Data Cívica 2020, GPL v2	or newer
 # -----------------------------------------------------------
-# blog-sianis19-armada/import_clean/Makefile
+# blog-sianis19-armada/import-clean/Makefile
 #
 
 .PHONY: all clean

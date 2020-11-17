@@ -1,0 +1,47 @@
+---
+title: "Cuatro sexenios y 374 mil 180 personas asesinadas"
+author: "Carolina Torreblanca y Oscar Elton"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F)
+knitr::opts_chunk$set(fig.pos = 'ht')
+```
+
+```{r, echo=FALSE, include=FALSE, warning=FALSE, comment=FALSE}
+if(!require(pacman)) install.packages("pacman")
+pacman::p_load(tidyverse, gt, here)
+
+files <- list(sinais = here("import-clean/output/sinais90-19.rds"),
+              pob = here("import-clean/output/pob.rds"),
+              bump_ranking = here("descriptives/output/bump-edos.png"),
+              fiebre_baseline = here("descriptives/output/baseline-tasa.png"),
+              fiebre_edades = here("descriptives/output/fiebre-edades.png"),
+              fiebre_modos = here("descriptives/output/fiebre-formas.png")
+              )
+
+sinais <- readRDS(files$sinais)
+pob <- readRDS(files$pob)
+
+```
+
+Durante las últimas semanas el INEGI publicó la base de datos de _Defunciones Generales_ que - año con año - nos dice cuántas personas murieron en México y de qué casusas. Esta base de datos se volverá muy relevante a finales del próximo año, cuando podamos todos saber de manera más certera el número de muertes que ha causado el virus que ha cambiado la dinámica social del mundo entero. Sin embargo, esta base de datos contiene también las muertes que un médico legista al examinar el cuerpo clasificó como presuntos homicidios, y es ahí donde nos gustaría centrarnos.
+
+Vivimos no sólo en medio de una pandemia, sino también en una dinámica de militarización constante de la seguridad pública del país desde hace por lo menos 13 años. Algo que quienes hoy ocupan las instituciones criticaron desde fuera, pero decidieron continuar una vez en el poder. ¿Dónde estamos parados hoy? ¿Han cambiado los lugares y los perfiles de las personas que mueren asesinadas diariamente?
+
+## Todo comenzó con Michoacán y nuestra atención en el norte de México
+
+```{r, echo=FALSE, out.width = '100%', out.height='100%', fig.show='hold'}
+knitr::include_graphics(files$bump_ranking)
+```
+
+<!-- 
+- Resumen de cómo cambió de zonas la violencia homicida
+- 
+-
+
+-->
+
+
+<!-- done -->
