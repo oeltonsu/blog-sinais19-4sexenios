@@ -1,6 +1,6 @@
 #
 # Author: Oscar Elton
-# Maintainers: OE
+# Maintainers: OE, CT
 # Copyright:  (c) Data Cívica 2020, GPL v2 or newer
 # --------------------------------------------------
 # blog-mortalidad-hospitales/grafs/src/theme-setup.R
@@ -22,8 +22,7 @@ tema <- theme_minimal() +
         legend.position="top")
 
 
-pal_6 <- c("#0C0A3E", "#7B1E7A", "#B33F62", "#F9564F", "#F3C677", "#0B5D1E")
-
-devices <- c('jpeg', 'svg')
+pal_7 <-  c("#00FAE1","#4FAAAC","#5104BC","#78069E","#9F0780","#C50961","#EC0B43")
+pal_2 <-  c("#525252","#cccccc")
 
 # done.
