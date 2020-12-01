@@ -52,6 +52,7 @@ sinais %>%
       geom_point(aes(color = entidad, alpha = 1), size = 3) +
       geom_point(color = "#FFFFFF", size = 1) +
       scale_y_reverse(breaks = 1:max(.$ranking)) + 
+      scale_color_manual(values = c("#99d8c9", "#2ca25f", "#fcbba1", "#fc9272", "#fb6a4a", "#de2d26", "#a50f15", "#bdbdbd")) +
       geom_text(data = . %>% filter(sexenio == "Fox"), aes(label = entidad, x = "Fox"), hjust = 1.1, size = 4) +
       geom_text(data = . %>% filter(sexenio == "AMLO"), aes(label = entidad, x = "AMLO"), hjust = -0.1, size = 4) +
       labs(title = "Entidades rankeadas por tasa de homicidio promedio",
@@ -60,7 +61,14 @@ sinais %>%
            caption = "FUENTE: Elaboración propia con datos de Mortalidad General, INEGI 2001-2019 y CONAPO.\nPara el sexenio de AMLO únicamente se cuenta 2019.") +
       tema +
       theme(legend.position = "none",
-            axis.text.x = element_text(size = 14))
+            axis.text.x = element_text(size = 14)) +
+      scale_color_manual(values = c("#a1d99b", "#fcbba1", "#fc9272", "#bdbdbd", "#bdbdbd",
+                                    "#bdbdbd", "#bdbdbd", "#fb6a4a", "#bdbdbd", "#bdbdbd",
+                                    "#a50f15", "#de2d26", "#bdbdbd", "#bdbdbd", "#bdbdbd",
+                                    "#bdbdbd", "#bdbdbd", "#bdbdbd", "#bdbdbd", "#bdbdbd",
+                                    "#bdbdbd", "#bdbdbd", "#bdbdbd", "#bdbdbd", "#bdbdbd",
+                                    "#bdbdbd", "#bdbdbd", "#bdbdbd", "#bdbdbd", "#bdbdbd",
+                                    "#31a354", "#bdbdbd"))
   }
 
 ggsave(files$bump, width = 12, height = 7)
