@@ -27,10 +27,10 @@ pob <- readRDS(files$pob)
 ```
 
 ```{r, echo=F, include=FALSE}
-hom2000_2019 <- sinais %>% filter(year>=2000) %>% nrow()
+hom2000_2019 <- sinais %>% filter(year>=2001) %>% nrow()
 ```
 
-Muchas cosas han cambiado en México desde la transición presidencial del 2000. Una de ellas es la manera en la que las personas son asesinadas. En este artículo haremos una autopsia por 18 años de datos oficiales de homicidio, que abracan cuatro sexenios. Durante este periodo cambió la intensidad con la que se asesina, los lugares, las maneras, y los perfiles de las víctimas. Ha cambiado también la estrategia de seguridad del gobierno, y luego se ha apostado y vuelto a apostar por la militarización. Desde el primero de enero del 2000 fueron asesinadas en el país `r hom2000_2019` personas ¿Cómo empezar a entender esta tragedia? 
+Muchas cosas han cambiado en México desde la transición presidencial del 2000. Una de ellas es la manera en la que se asesina. En este artículo haremos una autopsia por 18 años de datos oficiales de homicidio, que abracan cuatro sexenios. Durante este periodo cambió la intensidad con la que se asesina, los lugares, las maneras, y los perfiles de las víctimas. Ha cambiado también la estrategia de seguridad del gobierno, y luego se ha apostado y vuelto a apostar por la militarización. Desde el primero de enero del 2001 hasta el 31 de diciembre de 2019 fueron asesinadas en el país `r hom2000_2019` personas ¿Cómo empezar a entender esta tragedia? 
 
 ## ¿Cómo ha cambiado la intensidad?
 
@@ -39,7 +39,9 @@ hom2011 <- sinais %>% filter(year==2011) %>% nrow()
 hom2018 <- sinais %>% filter(year==2018) %>% nrow()
 ```
 
-De los ultimos cuatro sexenios analizados aquí, dos cuentan con un máximo histórico al menos desde 1990, que es en año desde el cual contamos con datos sistematizados por el INEGI sobre defunciones (incluyendo homicidios). En año 2011, cuando Felipe Calderón se encontraba aún gobernando, y sólo cuatro años después del inicio de la _guerra contra el narco_, México alcanzaba los `r hom2011` homicidios, es decir, dejó al país en uno de sus momentos más violentos; el segunto _máximo_ de violencia en años recientes fue hace apenas dos años. Durante 2018, el inegi registró el asesinato de `r hom2018`.
+El primer año para el que tenemos datos oficiales de homicidios publicados por el INEGI es 1990 y el último a la fecha de publicación de este texto es 2019. Es decir, treinta años de datos de homicidios. El primer dato que tenemos que saber para entender cómo han cambiado los asesinatos en el país durante los últimos cuatro sexenios es que tan solo en los últimos 13 hemos visto el año menos violento de nuestra historia reciente - 2007 - y también los dos más violentos - 2011 y 2018: la intensidad de los homcicidios ha cambiado *mucho* en las últimas dos décadas. 
+
+En 2011, cuatro años despúes de que Felipe Calderón hubiera intensificado la militarización de la seguridad pública en la _guerra contra el narco_, México alcanzaba los `r hom2011` homicidios, es decir, dejó al país en uno de sus momentos más violentos; el segunto _máximo_ de violencia en años recientes fue hace apenas dos años. Durante 2018, el inegi registró el asesinato de `r hom2018`.
 
 ```{r, echo=F, include=FALSE}
 hom2007 <- sinais %>% filter(year==2011) %>% nrow()
