@@ -26,10 +26,38 @@ pob <- readRDS(files$pob)
 
 ```
 
-Muchas cosas han cambiado en México desde la transición presidencial del 2000. Una de ellas es la manera en la que se asesina. En este artículo haremos un recorrido - una autopsia - por los 18 años de datos oficiales de homicidio que tenemos, que abracan cuatro sexenios. Durante este periodo cambió la intensidad con la que se asesina, los lugares, las maneras, y los perfiles de las víctimas. Ha cambiado también la estrategia de seguridad del gobierno, y luego se ha apostado y vuelto a apostar por la militarización. Desde el primero de enero del 2000 fueron asesinadas en el país 374 mil 180 personas ¿Cómo empezar a entender esta tragedia? 
+```{r, echo=F, include=FALSE}
+hom2000_2019 <- sinais %>% filter(year>=2000) %>% nrow()
+```
+
+Muchas cosas han cambiado en México desde la transición presidencial del 2000. Una de ellas es la manera en la que las personas son asesinadas. En este artículo haremos una autopsia por 18 años de datos oficiales de homicidio, que abracan cuatro sexenios. Durante este periodo cambió la intensidad con la que se asesina, los lugares, las maneras, y los perfiles de las víctimas. Ha cambiado también la estrategia de seguridad del gobierno, y luego se ha apostado y vuelto a apostar por la militarización. Desde el primero de enero del 2000 fueron asesinadas en el país `r hom2000_2019` personas ¿Cómo empezar a entender esta tragedia? 
 
 ## ¿Cómo ha cambiado la intensidad?
 
+```{r, echo=F, include=FALSE}
+hom2011 <- sinais %>% filter(year==2011) %>% nrow()
+hom2018 <- sinais %>% filter(year==2018) %>% nrow()
+```
+
+De los ultimos cuatro sexenios analizados aquí, dos cuentan con un máximo histórico al menos desde 1990, que es en año desde el cual contamos con datos sistematizados por el INEGI sobre defunciones (incluyendo homicidios). En año 2011, cuando Felipe Calderón se encontraba aún gobernando, y sólo cuatro años después del inicio de la _guerra contra el narco_, México alcanzaba los `r hom2011` homicidios, es decir, dejó al país en uno de sus momentos más violentos; el segunto _máximo_ de violencia en años recientes fue hace apenas dos años. Durante 2018, el inegi registró el asesinato de `r hom2018`.
+
+```{r, echo=F, include=FALSE}
+hom2007 <- sinais %>% filter(year==2011) %>% nrow()
+```
+
+Estamos acostumbrados a que el gobierno entrante le traspase la responsabilidad del _status quo_ de muchas cosas al gobierno anterior, y en parte quizá haya - aunque sea un poco - de verdad en ello. El sexenio de Vicente Fox fue un sexenio más o menos estable en cuanto a grandes cambios en las tendencias de homicidios. Incluso el 2007, año siguiente al comienzo del despliegue militar por parte de Felipe Calderón en Michoacán y algunas otras entidades del país, contaba con un mínimo histórico (al menos desde los noventas) de homicidios, con `r hom2007` personas asesinadas, además de precentar una de las disminuciones porcentuales más importantes de los últimos años.
+
+```{r, echo=FALSE, out.width = '100%', out.height='100%', fig.show='hold', fig.align="center"}
+knitr::include_graphics(files$fiebre_baseline)
+```
+
+```{r, echo=F, include=FALSE}
+hom2014 <- sinais %>% filter(year==2014) %>% nrow()
+```
+
+¿Qué quiere decir esto? Que factiblemente era mucho más dificil que la violencia siguiera disminuyendo dado que estaba en sus niveles más bajos, pero todos sabemos la historia que vino después. Desde 2008, casi todos los años podemos observar un aumento importante en el número de asesinatos - tanto en hombres como mujeres - respecto al año anterior. Esto únicamente se rompio durante los dos primeros años de Enrique Peña Nieto en el gobierno, cuando los homicidios comenzaron a bajar hasta encontrar un _mínimo_ en 2014, con `r hom2014` homicidios, y comenzar desde ahí nuevamente un acenso hasta hoy en día. Y aún cuando se veían disminuciones, los niveles de violencia que se vivían ya eran elevados
+
+<!-- 
 - Máximo historico cuantas veces
 - Cuándo mínimo historico
 - Sexenio de Fox: cambio fue casi cero. 2007: mínimo histórico, bajó la tasa 16 y 17% comparado con el año anterior. En 2008, creció 62% TODOS LOS AÑOS, EXCEPTO EN 2007 EL CAMBIO ES POSITIVO
@@ -37,29 +65,30 @@ Muchas cosas han cambiado en México desde la transición presidencial del 2000.
 EPN: la mitad de su sexenio bajo, luego creció. Aunque el crecimiento nunca fue tan loco, el baseline ya estaba jodido; para 2017 ya había más homicidios que con calderón. Lo mismo le pasó a amlo en 2019, aunque bajó el baseline estaba tan jodido que el *nivel* sigue estando arriba de todo calderón (no? no estoy segura)
 
 conclusion: fox cambios poco drásticos, dieron lugar al sexenio de calderon que incluye el año menos violento y uno de los tres más violentos de los últimos 20 años al menos. sexenio de cambios muy muy bruscos. EPN, cambios mucho menos intensos, pero con tanta violencia que de todos modos fue mucha violencia consante. AMLO 1 años. 
-
-```{r, echo=FALSE, out.width = '100%', out.height='100%', fig.show='hold'}
-knitr::include_graphics(files$fiebre_baseline)
-```
+-->
 
 ## ¿Cómo han cambiado los modos?
+
 
 Básicamente son armas la mayor parte de lo que explica el crecimiento de los homicidios. El resto de los homicidios * en totales * no han cambiado *tanto* aunque por supuesto han aumentado.
 
 
 ```{r, echo=FALSE, out.width = '100%', out.height='100%', fig.show='hold'}
-knitr::include_graphics(files$fiebre_edades)
+knitr::include_graphics(files$fiebre_modos)
 ```
+
+<!-- De acuerdo, siempre la mayor proporción es armas pero se ven poquitos aumentos en ahorcamiento no? O sea, casi nada dado que todo es armas en realidad -->
+
 
 ## ¿Cómo han cambiado los lugares?
 
-Estados nunca violentos -
-Estados siempre violentos -
-Estados violentos por sexenios: Chihuahua calderón, BJS EPN, Guanajuato AMLO
-Estados nunca violentos
+Estados nunca violentos - Yucatán, Aguascaientes
+Estados siempre violentos - Guerrero, Chihuahua, Sinaloa, BC
+Estados violentos por sexenios: Chihuahua calderón,  N, Guanajuato AMLO
+
 
 ```{r, echo=FALSE, out.width = '100%', out.height='100%', fig.show='hold'}
-knitr::include_graphics(files$fiebre_modos)
+knitr::include_graphics(files$bump_ranking)
 ```
 
 ## ¿Cómo han cambiado las víctimas?
@@ -72,12 +101,12 @@ Sabes qué está CABRON: a diferencia de por ejemplo arma de fuego, que es respo
 knitr::include_graphics(files$fiebre_edades)
 ```
 
-
 Y a la vez
 2) No tanto: Jóvenes, hombres basically
 
 Si tuvieramos que adivinar cómo era una víctima típica de homicidio en cada uno de los sexenios, ¿qué diríamos? 
 
+Yo sí diría que en realidad han sido siempre los mismos -> hombres, adultos-jóvenes, seguramente sin escolaridad. La cosa que más cambia es justo los lugares no? pero vemos que en realidad los perfiles siguen siendo casi iguales sin importar en dónde se estén matando.
 
 ## ¿De aquí a donde?
 

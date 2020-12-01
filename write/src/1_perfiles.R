@@ -8,6 +8,8 @@ pacman::p_load(tidyverse,
 # entonces tú disculparas mis directorios puercos
 
 main <- "~/Documents/proyectos/blog-sinais19-armas"
+
+inp <.
  inp <- paste(main, "import-clean/output", sep = "/")
  out <-  paste(main, "perfiles-caro/output", sep = "/")
  src <-  paste(main, "perfiles-caro/src", sep = "/")
@@ -16,8 +18,8 @@ main <- "~/Documents/proyectos/blog-sinais19-armas"
  source(paste0(src, "/0_tema.R"))
  
  # 1. Read
- full_sin <- read_rds(paste(inp, "sinais90-19.rds", sep = "/"))
- full_pop <- read_rds(paste(inp, "pob.rds", sep = "/"))
+ full_sin <- read_rds("/Users/oscarelton/Documents/blog-sinais19-armas/import-clean/output/sinais90-19.rds")
+ full_pop <- read_rds("/Users/oscarelton/Documents/blog-sinais19-armas/import-clean/output/pob.rds")
  
  # 2. Make sexenios
  s_c <- full_sin %>%
