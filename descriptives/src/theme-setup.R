@@ -6,7 +6,7 @@
 # blog-mortalidad-hospitales/grafs/src/theme-setup.R
 
 if(!require(pacman))install.packages("pacman")
-pacman::p_load(tidyverse, extrafont, ggrepel, treemapify, viridis, scales)
+pacman::p_load(tidyverse, extrafont, ggrepel, treemapify, viridis, scales, svglite)
 extrafont::loadfonts(quiet = T)
 
 tema <- theme_minimal() +
@@ -24,5 +24,7 @@ tema <- theme_minimal() +
 
 pal_7 <-  c("#00FAE1","#4FAAAC","#5104BC","#78069E","#9F0780","#C50961","#EC0B43")
 pal_2 <-  c("#525252","#cccccc")
+
+devices <- c("png", "svg")
 
 # done.

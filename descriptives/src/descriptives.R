@@ -10,10 +10,10 @@ pacman::p_load(tidyverse, here)
 
 files <- list(sinais = here("import-clean/output/sinais90-19.rds"),
               pob = here("import-clean/output/pob.rds"),
-              bump = here("descriptives/output/bump-edos.png"),
-              baseline = here("descriptives/output/baseline-tasa.png"),
-              edades = here("descriptives/output/fiebre-edades.png"),
-              formas = here("descriptives/output/fiebre-formas.png"),
+              bump = here("descriptives/output/bump-edos."),
+              baseline = here("descriptives/output/baseline-tasa."),
+              edades = here("descriptives/output/fiebre-edades."),
+              formas = here("descriptives/output/fiebre-formas."),
               theme = here("descriptives/src/theme-setup.R")
               )
 
@@ -71,7 +71,8 @@ sinais %>%
                                     "#31a354", "#bdbdbd"))
   }
 
-ggsave(files$bump, width = 12, height = 7)
+walk(devices, ~ ggsave(filename = file.path(paste0(files$bump, .x)),
+                       device = .x, width = 12, height = 7))
 
 # ==== Cambio porcentual en la tasa de homicidios
 sinais %>% 
@@ -106,8 +107,8 @@ sinais %>%
       scale_x_continuous(breaks = seq(from = 2001, to = 2019, by = 1))
   }
 
-ggsave(files$baseline, width = 14, height = 10)
-
+walk(devices, ~ ggsave(filename = file.path(paste0(files$baseline, .x)),
+                       device = .x, width = 14, height = 10))
 
 # ==== Fiebre de totales por grupo de edad
 sinais %>%
@@ -139,7 +140,8 @@ sinais %>%
       scale_x_continuous(breaks = seq(from = 2001, to = 2019, by = 1))
   }
   
-ggsave(files$edades, width = 14, height = 10)
+walk(devices, ~ ggsave(filename = file.path(paste0(files$edades, .x)),
+                       device = .x, width = 14, height = 10))
 
 # ==== Fiebre de totales por forma de asesinato
 sinais %>%
@@ -178,6 +180,7 @@ sinais %>%
       scale_x_continuous(breaks = seq(from = 2001, to = 2019, by = 1))
   }
 
-ggsave(files$formas, width = 14, height = 10)
+walk(devices, ~ ggsave(filename = file.path(paste0(files$formas, .x)),
+                       device = .x, width = 14, height = 10))
 
 # done.
