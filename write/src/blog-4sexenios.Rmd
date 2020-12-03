@@ -15,10 +15,11 @@ pacman::p_load(tidyverse, gt, here)
 
 files <- list(sinais = here("import-clean/output/sinais90-19.rds"),
               pob = here("import-clean/output/pob.rds"),
-              bump_ranking = here("descriptives/output/bump-edos.png"),
-              fiebre_baseline = here("descriptives/output/baseline-tasa.png"),
-              fiebre_edades = here("descriptives/output/fiebre-edades.png"),
-              fiebre_modos = here("descriptives/output/fiebre-formas.png")
+              bump_ranking = here("descriptives/output/pimp/bump-edos.jpg"),
+              fiebre_baseline = here("descriptives/output/pimp/baseline-tasa.jpg"),
+              fiebre_edades = here("descriptives/output/pimp/fiebre-edadesp.jpg"),
+              fiebre_modos = here("descriptives/output/pimp/fiebre-formas.jpg"),
+              tabla_perfiles = here("descriptives/output/pimp/Perfiles_Sexenio_2.jpg")
               )
 
 sinais <- readRDS(files$sinais)
@@ -53,7 +54,7 @@ En 2019, el único año del sexenio de AMLO para el que tenemos información act
 hom2007 <- sinais %>% filter(year==2011) %>% nrow()
 ```
 
-```{r, echo=FALSE, out.width = '100%', out.height='100%', fig.show='hold', fig.align="center"}
+```{r, echo=FALSE, out.width = '150%', out.height='150%', fig.show='hold', fig.align="center"}
 knitr::include_graphics(files$fiebre_baseline)
 ```
 
@@ -68,7 +69,7 @@ Los últimos 18 años también han implicado un cambio drástico en la manera en
 Durante el sexenio de Fox el XXX% en promedio de todos los homicidios se cometieron con arma de fuego, durante el sexenio de Calderón era ya el XX% y para el de EPN ya fue el XXX%. En 2019 ese porcentaje fue de XXX. Es decir, la tendencia no da señales de revertirse, por el contrario. 
 
 
-```{r, echo=FALSE, out.width = '100%', out.height='100%', fig.show='hold'}
+```{r, echo=FALSE, out.width = '150%', out.height='150%', fig.show='hold', fig.align="center"}
 knitr::include_graphics(files$fiebre_modos)
 ```
 
@@ -78,7 +79,7 @@ Una de las preguntas que nos hacemos es cómo ha cambiado la dinámica de violen
 
 La _guerra contra el narco_ se ha ido moviendo por los estados del país. El caso más emblemático en meses recientes es quizás el de Guanajuato. Pensar en esta entidad hace unos años era pensar en pueblos mágicos, callejones, artículos de piel; sin embargo, en años recientes se habla cada vez más del Cartel de Santa Rosa,de homicidios, secuestros, fosas y huachicoleo. ¿Sucedió esto espontaneamente?
 
-```{r, echo=FALSE, out.width = '100%', out.height='100%', fig.show='hold'}
+```{r, echo=FALSE, out.width = '150%', out.height='150%', fig.show='hold', fig.align="center"}
 knitr::include_graphics(files$bump_ranking)
 ```
 
@@ -94,7 +95,7 @@ Con los datos que existen, podemos saber muy poco de las personas que han sido a
 
 Sabes qué está CABRON: a diferencia de por ejemplo arma de fuego, que es responsable de la mayoría del *aumento*, en edades *todas las edades casi* aumentaron. Por supuesto viejititos y niñes no tantpo, pero 18 - 64 años todos aumentaron notoriamente, no?
 
-```{r, echo=FALSE, out.width = '100%', out.height='100%', fig.show='hold'}
+```{r, echo=FALSE, out.width = '150%', out.height='150%', fig.show='hold', fig.align="center"}
 knitr::include_graphics(files$fiebre_edades)
 ```
 
@@ -104,6 +105,10 @@ Y a la vez
 Si tuvieramos que adivinar cómo era una víctima típica de homicidio en cada uno de los sexenios, ¿qué diríamos? 
 
 Yo sí diría que en realidad han sido siempre los mismos -> hombres, adultos-jóvenes, seguramente sin escolaridad. La cosa que más cambia es justo los lugares no? pero vemos que en realidad los perfiles siguen siendo casi iguales sin importar en dónde se estén matando.
+
+```{r, echo=FALSE, out.width = '150%', out.height='150%', fig.show='hold', fig.align="center"}
+knitr::include_graphics(files$tabla_perfiles)
+```
 
 ## ¿De aquí a donde?
 
