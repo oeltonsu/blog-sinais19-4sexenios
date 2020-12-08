@@ -230,4 +230,6 @@ pob_acum <- pob %>%
 
 En México, han sido asesinadas 374 mil personas en 19 años. ¿Cómo dimensionar y humanizar esta catástrofe? Es como si desaparecieran la mitad de las personas que viven en Colima o Baja California Sur, o toda la población de Islandia. La violencia letal de las últimas décadas no es normal - ni en términos de su magnitud, ni en términos de los niveles que vivíamos en el país hasta hace menos de 15 años - no hay que normalizarla. 
 
+_El repositorio con los datos y códigos para replicar el análisis puede consultarse_ [__aquí__.](https://github.com/oeltonsu/blog-sinais19-4sexenios.git)
+
 <!-- done -->
