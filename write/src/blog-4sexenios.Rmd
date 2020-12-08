@@ -31,11 +31,13 @@ pob <- readRDS(files$pob)
 hom2001_2019 <- sinais %>% filter(year>=2001) %>% nrow()
 
 hom2008_2019 <- sinais %>% filter(year>=2008) %>% nrow()
+
+porcent1 <- round(hom2008_2019 / hom2001_2019 * 100, 2)
 ```
 
 Muchas cosas han cambiado en México desde la transición presidencial del 2000. Una de ellas es la manera en la que se asesina. En este artículo haremos una autopsia por cuatro sexenios de datos oficiales de homicidio, que abarcan 19 años, para intentar entender quiénes han sido las víctimas de la violencia letal en este país. 
 
-Durante este periodo cambió la intensidad con la que se asesina, los lugares, las maneras, y los perfiles de las víctimas. Ha cambiado también la estrategia de seguridad del gobierno, y luego se ha apostado y vuelto a apostar por la militarización. Desde el primero de enero del 2001 hasta el 31 de diciembre de 2019 fueron asesinadas en el país `r hom2001_2019` personas. De estás, `r hom2008_2019` fueron asesinadas entre el 2008 y el 2019, a partir de la profundización de la Guerra contra las Drogas en el sexenio de Calderón. ¿Cómo empezar a entender esta tragedia? ¿Cómo construir memoria de lo que nos pasó y nos pasa? 
+Durante este periodo cambió la intensidad con la que se asesina, los lugares, las maneras, y los perfiles de las víctimas. Ha cambiado también la estrategia de seguridad del gobierno, y luego se ha apostado y vuelto a apostar por la militarización. Desde el primero de enero del 2001 hasta el 31 de diciembre de 2019 fueron asesinadas en el país `r hom2001_2019` personas. De estás, `r hom2008_2019` - el `r porcent1`% fueron asesinadas entre el 2008 y el 2019, a partir de la profundización de la llamada "Guerra contra las drogas" en el sexenio de Calderón. ¿Cómo empezar a entender esta tragedia? ¿Cómo construir memoria de lo que nos pasó y nos pasa? 
 
 ## ¿Cómo cambió la intensidad de los homicidios?
 
@@ -46,13 +48,13 @@ hom2018 <- sinais %>% filter(year==2018) %>% nrow()
 
 El primer paso para entender la violencia letal de los últimos años es enteder cómo ha evolucionado el ritmo del *cambio* en la tasa de homicidios de un año al siguiente y la dirección de dicho cambio. Es decir, qué tan volátil es la violencia letal y si ésta aumenta o disminuye, relativo al año anterior. 
 
-En la siguiente gráfica podemos ver cómo el cambio en la tasa de homicidios pasó de ser pequeño y constante durante el sexenio de Fox a ser explosivo durante el sexenio de Calderón. De entre los treinta años de datos de homicidio publicados actualmente por el INEGI, de 1990 a 2019, tan solo en los últimos 13 años hemos visto el año menos violento de nuestra historia reciente - 2007 - *y también el más violento* -  2018.
+En la primera gráfica podemos ver cómo el cambio en la tasa de homicidios pasó de ser pequeño y constante durante el sexenio de Fox a ser explosivo durante el sexenio de Calderón. De entre los treinta años de datos de homicidio publicados actualmente por el INEGI, de 1990 a 2019, tan solo en los últimos 13 años hemos visto el año menos violento de nuestra historia reciente - 2007 - *y también el más violento* -  2018.
 
-El sexenio de Vicente Fox se caracterizó por una tasa de homicidios constante, que disminuía o aumentaba poco, año tras año. El mínimo histórico de la tasa de homicidios ocurrió en 2007, año en que la tasa disminuyó 17%, relativo al año anterior. Sin embargo 2008, el segundo año del sexenio de Calderón, traería el crecimiento porcentual más grande en la tasa de homicidios de todo el periodo: la tasa de homicidio de hombres aumentó 62% y la de mujeres 31%. Este escandaloso cambio fue seguido de *5 años de más crecimiento en la tasa de homicidios*. Para 2011 la tasa de homicidios general ya había llegado a su máximo histórico. Solamente ese año fueron asesinadas `r hom2011` personas. Nunca regresaríamos a los niveles de violencia letal del sexenio de Fox.
+El sexenio de Vicente Fox se caracterizó por una tasa de homicidios constante, que disminuía o aumentaba poco, año tras año. El mínimo histórico de la tasa de homicidios ocurrió en 2007, año en que la tasa disminuyó 17%, relativo al año anterior. Sin embargo 2008, el segundo año del sexenio de Calderón, traería el crecimiento porcentual más grande en la tasa de homicidios de todo el periodo: la tasa de homicidio de hombres aumentó 62% y la de mujeres 31%. Este escandaloso cambio fue seguido de *5 años más de crecimiento en la tasa de homicidios*. Para 2011 la tasa de homicidios general ya había llegado a su máximo histórico. Solamente ese año fueron asesinadas `r hom2011` personas. Nunca regresaríamos a los niveles de violencia letal del sexenio de Fox.
 
-En 2012 la tasa disminuyó ligeramente, permitiéndole a EPN iniciar su sexenio con una tendencia a la baja. A pesar de que el *cambio* en la tasa de homicidios fue negativo por tres años seguido durante el sexenio de Peña Nieto, los niveles habían aumentado tanto durante que el sexenio de Calderón que el ritmo de la disminución no bastó para regresar a tasas similares a las que habíamos visto durante el sexenio de Fox. Para 2015 la tendencia a la baja había terminado, y la violencia repuntaba. Peña Nieto terminaría su sexenio habiendo batido dos récords: el año con la tasa de homicidios más alta desde que hay información (2017 y luego 2018), sin embargo, Calderón mantuvo el récord de haber presidido durante el año en el que la violencia creció más, relativo al año anterior (2008). 
+En 2012 la tasa disminuyó ligeramente, permitiéndole a EPN iniciar su sexenio con una tendencia a la baja. A pesar de que el *cambio* en la tasa de homicidios fue negativo por tres años seguidos durante el sexenio de Peña Nieto, los niveles habían aumentado tanto durante que el sexenio de Calderón que el ritmo de la disminución no bastó para regresar a tasas similares a las que habíamos visto durante el sexenio de Fox. Para 2015 la tendencia a la baja había terminado, y la violencia repuntaba. Peña Nieto terminaría su sexenio habiendo batido dos récords: el año con la tasa de homicidios más alta desde que hay información (2017 y luego 2018), sin embargo, Calderón mantuvo el récord de haber presidido durante el año en el que la violencia creció más, relativo al año anterior (2008). 
 
-En 2019, el único año del sexenio de AMLO para el que tenemos información, podemos ver que los homicidios disminuyeron un poco, comparado con el 2018. Sin embargo, como le ocurrió a EPN, el nivel absoluto de la violencia es tal que disminuciones de apenas 1% o 4% como las que observamos durante 2019 no alcanzarán para regresarnos a niveles de homicidios como los que vimos durante el sexenio de Fox.  
+En 2019, el único año del sexenio de AMLO para el que tenemos esta información, podemos ver que los homicidios disminuyeron un poco, comparado con el 2018. Sin embargo, como le ocurrió a EPN, el nivel absoluto de la violencia es tal que disminuciones de apenas 1% o 4% como las que observamos durante 2019 no alcanzarán para regresarnos a niveles de homicidios como los que vimos durante el sexenio de Fox.  
 
 ```{r, echo=F, include=FALSE}
 hom2007 <- sinais %>% filter(year==2011) %>% nrow()
@@ -68,9 +70,9 @@ hom2014 <- sinais %>% filter(year==2014) %>% nrow()
 
 ## ¿Cómo han cambiado los modos?
 
-Los últimos 19 años también han implicado un cambio drástico en la manera en la que se asesina en México. La manera más común de matar siempre ha sido con arma de fuego, pero a partir del 2007 la frecuencia relativa de homicidios con arma de fuego versus el resto de las formas de matar se volvió extremadamente sesgada.
+Los últimos 19 años también han implicado un cambio drástico en la manera en la que se asesina en México. La manera más común de matar siempre ha sido con arma de fuego, pero a partir del 2007 la frecuencia relativa de homicidios con arma de fuego en comparación con el resto de las formas de matar se volvió extremadamente sesgada.
 
-Hablando de números totales, el aumento en homicidios con arma de fuego explican gran parte del crecimiento de homicidios en los últimos años, como podemos ver en la siguiente gráfica. En cambio, en términos relativos, la intensidad con la que se asesina personas estrangulándolas o con arma blanca no ha cambiado tan drásticamente durante este periodo, como se puede ver en la siguiente gráfica - aunque sin duda ha habido un aumento de homicidios *sin importar la manera en la que fueron cometidos.* 
+Hablando de números totales, el aumento en homicidios con arma de fuego explican gran parte del crecimiento de homicidios en los últimos años, como podemos ver en la siguiente gráfica. En cambio, en términos relativos, la intensidad con la que se asesina personas estrangulándolas o con arma blanca no ha cambiado tan drásticamente durante este periodo, aunque sin duda ha habido un aumento de homicidios *sin importar la manera en la que fueron cometidos.* 
 
 ```{r echo=FALSE, include=FALSE}
 pct_forma <- sinais %>% 
@@ -102,7 +104,7 @@ knitr::include_graphics(files$fiebre_modos)
 
 ## ¿Cómo han cambiado los lugares?
 
-Una de las preguntas que nos hacemos es cómo ha cambiado la dinámica de violencia en el territorio. Sabemos, por ejemplo, que la intensidad de la violencia ha crecido pero que [no necesariamente eso se traduce en una dispersión de la violencia](https://parentesis.nexos.com.mx/?p=124) por todo el terroriorio nacional. Sin embargo, sí estamos viendo cómo lugares que antes habían escapado relativamente intocados de violencia durante el sexenio de Calderón o de EPN, hoy se han vuelto lugares de homicidios cotidianos.
+Una de las preguntas que nos hacemos es cómo ha cambiado la dinámica de violencia en el territorio. Sabemos, por ejemplo, que la intensidad de la violencia ha crecido pero que [no necesariamente eso se traduce en una dispersión de la violencia](https://parentesis.nexos.com.mx/?p=124) por todo el territorio nacional. Sin embargo, sí estamos viendo cómo lugares que antes habían escapado relativamente intocados de violencia durante el sexenio de Calderón o de EPN, hoy se han vuelto lugares de homicidios cotidianos.
 
 La _guerra contra el narco_ se ha ido moviendo por los estados del país. El caso más emblemático en meses recientes es quizás el de Guanajuato. Pensar en esta entidad hace unos años era pensar en pueblos mágicos, callejones, artículos de piel y el mundialmente conocido _Cervantino_; sin embargo, en años recientes se habla cada vez más del Cartel de Santa Rosa, homicidios, secuestros, fosas y huachicoleo. ¿Surgió todo esto espontaneamente?
 
@@ -166,21 +168,21 @@ tasaCHI_AMLO <- tasaCHI %>% filter(sexenio=="AMLO")
   
 ```
 
-Podemos también ver que estados como Chihuahua y Baja California se han posicionado constantemente entre los estados más violentos a través de los años, encontrandonse siempre en el top 5 de entidades con mayor tasa de homicidios promedio. Chihuahua, por ejemplo, fue la segunda entidad más violenta durante el sexenio de Fox con una tasa de `r tasaCHI_Fox$avg_tasa`, pasando al primer lugar con Felipe Calderón, y manteniendose en tercero duranto los dos últimos sexenios con tasas promedio de homicidios de `r tasaCHI_Calderon$avg_tasa`, `r tasaCHI_EPN$avg_tasa`, `r tasaCHI_AMLO$avg_tasa` por cada 100 mil habitantes respectivamente.
+Podemos también ver que estados como Chihuahua y Baja California se han posicionado constantemente entre los estados más violentos a través de los años, encontrándonse siempre en el top 5 de entidades con mayor tasa de homicidios promedio. Chihuahua, por ejemplo, fue la segunda entidad más violenta durante el sexenio de Fox con una tasa de `r tasaCHI_Fox$avg_tasa`, pasando al primer lugar con Felipe Calderón, y manteniéndose en tercero duranto los dos últimos sexenios con tasas promedio de homicidios de `r tasaCHI_Calderon$avg_tasa`, `r tasaCHI_EPN$avg_tasa`, `r tasaCHI_AMLO$avg_tasa` por cada 100 mil habitantes respectivamente.
 
-Por el contrario, entidades como Coahuila, Baja California Sur y Nuevo León, han pasado de ser relativamente poco violentas durante un sexenio a ser extremadamente violentas en el siguiente, y regresar a niveles bajos de violencia letal comparada después. En algunos casos, como el de Coahuila, incluso regresaron a niveles de violencia letal que les permitió ubicarse en un lugar similar en el ranking al que tenían durante el sexenio de Fox. 
+Por el contrario, entidades como Coahuila, Baja California Sur y Nuevo León, han pasado de ser relativamente poco violentas durante un sexenio a ser extremadamente violentas en el siguiente, y regresar a niveles bajos de violencia letal comparada después. En algunos casos, como el de Coahuila, incluso bajaron sus niveles de violencia letal de forma tal que les permitió ubicarse en un lugar similar en el ranking al que tenían durante el sexenio de Fox. 
 
 Hay un grupo de estados que, por el contrario, parecen haberse vuelto menos violentos con el paso de los años. ¿Qué pensar de la violencia en entidades que descendieron constantemente en el ranking conforme avanzaban los sexenios, como Oaxaca, la CDMX y el EDOMEX? Que probablemente no es que se hayan vuelto menos violentas, sino que buena parte del resto del país se volvió *más* violenta a su alrededor, y éstas lograron aislarse. 
 
 Hay por supuesto otras entidades donde no pasa (casi) nada, como Aguascalientes y Yucatán, que se ubican constantemente entre los estados menos violentos del ranking. 
 
-Que haya diferencias geográficas tan importantes no debería de extrañarnos: los homicidios no se cometen aleatoriamente; por el contrario. La cercanía a la frontera y los mercados de drogas en el extranjero, los puertos y rutas de trasiego, la sincronización política entre alcaldes, gobernadores y presidentes, el tipo de economía local, entre otros, son algunos de los factores que investigaciones académicas han señalado como clave en la distribución espacial de la violencia. Sin embargo es claro que el escenario en el que se disputa la guerra ha cambiado con los años.
+Que haya diferencias geográficas tan importantes no debería de extrañarnos: los homicidios no se cometen aleatoriamente. Por el contrario, la cercanía a la frontera y los mercados de drogas en el extranjero, los puertos y rutas de trasiego, la sincronización política entre alcaldes, gobernadores y presidentes, el tipo de economía local, el despliegue de las fuerzas armadas en ciertas regiones, el descabezamiento de cárteles como estrategia, entre otros, son algunos de los factores que investigaciones académicas han señalado como clave en la distribución espacial de la violencia. Sin embargo, es claro que el escenario en el que se disputa la guerra ha cambiado con los años.
 
 ## ¿Cómo han cambiado las víctimas?
 
-Con los datos que existen, podemos saber poco de las personas que han sido asesinadas durante estos años. No sabemos cómo se llamaban o qué les gustaba hacer; tampoco podemos saber si la policía investigó el evento y encontró a los responsables. Las cientos de miles de víctimas aparecen en las bases oficiales como un renglón. Sin embargo, la información publicada por el INEGI ofrece algunas pistas, como el sexo, la edad, la escolaridad, el estado civil y, en algunos casos, la ocupación de las víctimas. 
+Con los datos que existen, podemos saber poco de las personas que han sido asesinadas durante estos años. No sabemos cómo se llamaban o qué les gustaba hacer; tampoco podemos saber si la policía investigó el evento y encontró a los responsables. Los cientos de miles de víctimas aparecen en las bases oficiales como un renglón. Sin embargo, la información publicada por el INEGI ofrece algunas pistas, como el sexo, la edad, la escolaridad, el estado civil y, en algunos casos, la ocupación de las víctimas. 
 
-A pesar de que durante estos últimos años hemos visto un cambio en la manera en la que se mata - el aumento en el número de homicidios con arma de fuego y de homicidios con víctimas mujeres - y a pesar de que los escenarios principales de la guerra han cambiado a menudo, la frecuencia relativa con la que se asesina a personas de cada grupo de edad no ha cambiado *tanto.* Es decir, se matan más personas, sí, pero la proporción de personas de 18 a 24  - por ejemplo - que fueron asesinadas en un año dado es bastante constante en el tiempo, especialmente del 2007 en adelante. 
+A pesar de que durante estos últimos años hemos visto un cambio en la manera en la que se mata en el aumento en el número de homicidios con arma de fuego y de homicidios con víctimas mujeres, fenónemo en el que ahondamos en el informe [Claves para entender y prevenir los asesinatos de mujeres](https://datacivica.org/assets/pdf/claves-para-entender-y-prevenir-los-asesinatos-de-mujeres-en-mexico.pdf)  y a pesar de que los escenarios principales de la guerra han cambiado a menudo, la frecuencia relativa con la que se asesina a personas de cada grupo de edad no ha cambiado *tanto.* Es decir, se matan más personas, sí, pero la proporción de personas de 18 a 24  - por ejemplo - que fueron asesinadas en un año dado es bastante constante en el tiempo, especialmente del 2007 en adelante. 
 
 ```{r, echo=FALSE, out.width = '150%', out.height='150%', fig.show='hold', fig.align="center"}
 knitr::include_graphics(files$fiebre_edades)
@@ -206,7 +208,7 @@ pct_edades <- sinais %>%
 knitr::include_graphics(files$tabla_perfiles)
 ```
 
-En todos los sexenios, tanto para hombres como para mujeres, la vícitma más común tenía entre 25 y 34 años de edad. En el caso de los hombres, los homicidios ocurrieron con más frecuencia en la vía pública y con arma de fuego, mientras que para las mujeres esta manera de matar se volvió la más común a partir del sexenio de Calderón; durante el sexenio de Fox el perfil más común de una mujer que fue asesinada indicaba que había sido asfixiada en su hogar. 
+En todos los sexenios, tanto para hombres como para mujeres, la víctima más común tenía entre 25 y 34 años de edad. En el caso de los hombres, los homicidios ocurrieron con más frecuencia en la vía pública y con arma de fuego, mientras que para las mujeres esta manera de matar se volvió la más común a partir del sexenio de Calderón; durante el sexenio de Fox, en cambio, el perfil más común de una mujer que fue asesinada indicaba que había sido asfixiada en su hogar. 
 
 Durante el sexenio de Fox, el perfil más común de las víctimas era de homicidios ocurridos en la CDMX o en el Estado de México. Esto responde, por supuesto, a la población: son las entidades con más habitantes del país. Sin embargo, durante el sexenio de Calderón lo más frecuente era que los asesinatos ocurrieran en Chihuahua, a pesar de que esa entidad es apenas la _11va_ por su número de habitantes. 
 
@@ -214,7 +216,7 @@ Durante el gobierno de EPN en el Estado de México, lo más probable es que una 
 
 ## ¿De aquí a donde?
 
-¿Qué podemos esperar de la violencia letal en los años siguientes? No lo sabemos. El primer año del sexenio de AMLO vino con una ligera disminución en la tasa de homicidios, estas son buenas noticias. Sin embargo, hemos visto este patrón antes: tanto Calderón como EPN empezaron su sexenio con una tendencia a la baja. Sabemos que una disminución en un año dado - o incluso en un par - no significa una tendencia sostenida a la baja. 
+¿Qué podemos esperar de la violencia letal en los años siguientes? No lo sabemos. El primer año del sexenio de AMLO vino con una ligera disminución en la tasa de homicidios, estas son buenas noticias. Sin embargo, hemos visto este patrón antes: tanto Calderón como EPN empezaron su sexenio con una tendencia a la baja. Sabemos que una disminución en un año dado o incluso en un par, no significa una tendencia sostenida a la baja. 
 
 Lo que sí sabemos es que los homicidios perpetrados en 2019 se parecen mucho a los que ocurrieron en los dos sexenios anteriores: en vía pública, con armas de fuego. Sabemos también que se ha vuelto a apostar por una estrategia de seguridad pública que pasa por la militarización. 
 
@@ -228,7 +230,7 @@ pob_acum <- pob %>%
 
 ```
 
-En México, han sido asesinadas 374 mil personas en 19 años. ¿Cómo dimensionar y humanizar esta catástrofe? Es como si desaparecieran la mitad de las personas que viven en Colima o Baja California Sur, o toda la población de Islandia. La violencia letal de las últimas décadas no es normal - ni en términos de su magnitud, ni en términos de los niveles que vivíamos en el país hasta hace menos de 15 años - no hay que normalizarla. 
+En México, han sido asesinadas 374 mil personas en 19 años. ¿Cómo dimensionar y humanizar esta catástrofe? Es como si desaparecieran la mitad de las personas que viven en Colima o Baja California Sur, o toda la población de Islandia. La violencia letal de las últimas décadas no es normal, ni en términos de su magnitud, ni en términos de los niveles que vivíamos en el país hasta hace menos de 15 años. No hay que normalizarla. 
 
 _El repositorio con los datos y códigos para replicar el análisis puede consultarse_ [__aquí__.](https://github.com/oeltonsu/blog-sinais19-4sexenios.git)
 
